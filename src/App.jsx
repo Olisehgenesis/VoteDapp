@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { createPublicClient, http, createWalletClient, custom, parseAbiItem } from 'viem';
 import { mainnet } from 'viem/chains';
+import CONTRACT_ABI from "./contracts/vote.abi.json"
 
-const CONTRACT_ADDRESS = 'YOUR_CONTRACT_ADDRESS';
-const CONTRACT_ABI = [/* Your contract ABI here */];
+const CONTRACT_ADDRESS = "0x38E061a6254c846408d06315216E65281185BEdF";
+
 
 export default function App() {
   const [polls, setPolls] = useState([]);
