@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { createPublicClient, createWalletClient, custom, http } from 'viem';
-import { mainnet } from 'viem/chains';
-
+import { baseSepolia} from 'viem/chains';
 import CONTRACT_ABI from "./contracts/vote.abi.json";
 
-const CONTRACT_ADDRESS = '0x38E061a6254c846408d06315216E65281185BEdF';
+const CONTRACT_ADDRESS = '0xf95EF9B12c80bfc8B3C3252f68A2935BadAe78B8';
 
 export default function VotingApp() {
   const [polls, setPolls] = useState([]);
@@ -21,7 +20,7 @@ export default function VotingApp() {
   // Initialize clients
   useEffect(() => {
     const public_client = createPublicClient({
-      chain: mainnet,
+      chain: baseSepolia,
       transport: http()
     });
 
@@ -29,7 +28,7 @@ export default function VotingApp() {
 
     if (typeof window.ethereum !== 'undefined') {
       const wallet_client = createWalletClient({
-        chain: mainnet,
+        chain: baseSepolia,
         transport: custom(window.ethereum)
       });
       setWalletClient(wallet_client);
